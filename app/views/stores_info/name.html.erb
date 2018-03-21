@@ -1,0 +1,32 @@
+<h1>レストラン検索</h1>
+
+<body>
+  <div class="about-wrapper">
+    <p>周辺のレストラン</p>
+    <p>range=<%= @range %></p>
+  </div>
+  <div class="stores-wrapper flex">
+    <div class="stores">
+      <% if @rests  %>
+      <% @rests.each do |rest| %>
+        <p class="store-wrapper flex culmn">
+        <!--<a href="#">-->
+          <span class="img-wrapper row">
+            <img src="<%= rest["image_url"]["shop_image1"] %>"/>
+          </span>
+          <span class="about-wrapper row">
+            <a href="<%= rest["url"] %>"></a>
+            <span><%= rest["name"] %></span>
+            <br>
+            <span>現在地から<%= rest["access"]["walk"] %>分</span>
+          </span>
+        <!--</a>-->
+        </p>
+      <% end %>
+      <% else %>
+        検索結果がありませんでした
+      <% end %>
+      
+    </div>
+  </div>
+</body>
