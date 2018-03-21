@@ -1,5 +1,11 @@
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding-top: 20px;
+}
 
 .center {
   text-align: center;
@@ -17,6 +23,7 @@
   flex-direction:  row;
 }
 
+/* name */
 .stores-wrapper{
   width: max;
   text-align:center;
@@ -64,4 +71,9 @@
       }
     }
   }
+}
+
+/* input */
+.page-about{
+  padding:10px;
 }
