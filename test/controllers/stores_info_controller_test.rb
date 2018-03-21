@@ -1,13 +1,18 @@
 require 'test_helper'
 
 class StoresInfoControllerTest < ActionDispatch::IntegrationTest
+  test "should get input" do
+    get root_path
+    assert_response :success
+  end
+  
   test "should get name" do
-    get stores_info_name_url
+    post name_path
     assert_response :success
   end
 
   test "should get detail" do
-    get stores_info_detail_url
+    get detail_path
     assert_response :success
   end
 

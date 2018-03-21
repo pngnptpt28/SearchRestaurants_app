@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'stores_info/input'
-  post 'stores_info/name'
-  get 'stores_info/detail'
-  root 'application#hello'
+  root 'stores_info#input'
+  get '/input', to: 'store_info#input'
+  post '/name', to: 'stores_info#name'
+  get '/detail', to: 'stores_info#detail'
+  # root 'application#hello'
 end
