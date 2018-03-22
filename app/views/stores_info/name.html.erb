@@ -14,7 +14,7 @@
             <img src="<%= rest["image_url"]["shop_image1"] %>"/>
           </span>
           <span class="about-wrapper row">
-            <a href="<%= rest["url"] %>"></a>
+            <%= link_to "", rest_path(rest["id"]) %>
             <span><%= rest["name"] %></span>
             <br>
             <span>現在地から<%= rest["access"]["walk"] %>分</span>
