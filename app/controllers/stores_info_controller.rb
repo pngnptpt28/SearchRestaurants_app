@@ -11,15 +11,12 @@ class StoresInfoController < ApplicationController
     uri   = 'https://api.gnavi.co.jp/RestSearchAPI/20171213/'
 
     format= "json"
-    # lat   = 35.670083
-    # lon   = 139.763267
     lat = params[:lat]
     lon = params[:lon] 
     range = params[:range]
-    # range = 5
     @range = range
 
-    # ハッシュをパラメーターにする関数
+    # function : hash->paramater
     def to_params(params_h)
       params = ""
       params_h.each_with_index { |(k, v), i|
@@ -32,19 +29,17 @@ class StoresInfoController < ApplicationController
       return params
     end
 
+    # to json
     url =  uri + to_params({'format'=>format, 'keyid'=>ENV["GNAVI_ACC_KEY"], 'latitude'=>lat, 'longitude'=>lon, 'range'=>range, 'hit_per_page'=>100})
     json = Net::HTTP.get(URI.parse(url))
-
+    
     @rests = JSON.parse(json)["rest"]
-    @count = JSON.parse(json)["total_hit_count"]
-    # puts @rests.length
 
-    # # map : 各要素に同じ挙動させる
-    # rests.map{ |rest|
-    #   @rest = rest
-    # }
-
-    # @rest1 = JSON.parse(json)["rest"].first
+    @rests.map{ |rest|
+      # create or update
+      @rest = Rest.find_or_initialize_by(id: rest["id"])
+      @rest.update_attributes(id: rest["id"], name: rest["name"])
+    }
   end
   
   def detail

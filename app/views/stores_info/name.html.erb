@@ -3,9 +3,6 @@
 <body>
   <div class="about-wrapper">
     <p>周辺のレストラン</p>
-    <p>range=<%= @range %></p>
-    <p>length=<%= @rests.length %></p>
-    <p>count=<%= @count %></p>
   </div>
   <div class="stores-wrapper flex">
     <div class="stores">
@@ -21,8 +18,6 @@
             <span><%= rest["name"] %></span>
             <br>
             <span>現在地から<%= rest["access"]["walk"] %>分</span>
-            <br>
-            <span>id : <%= rest["id"] %></span>
           </span>
         <!--</a>-->
         </p>

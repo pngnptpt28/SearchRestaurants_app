@@ -6,6 +6,6 @@ class ChangeColumnToRest < ActiveRecord::Migration[5.1]
 
   # 変更前の状態
   def down
-    change_column :users, :id, :integer
+    change_column :rests, :id, :integer
   end
 end

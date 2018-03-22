@@ -6,7 +6,6 @@ class UserTest < ActiveSupport::TestCase
     @rest = Rest.new(id: "a1", name: "example")
   end
 
-  # 有効か
   test "should be valid" do
     assert @rest.valid?
   end
