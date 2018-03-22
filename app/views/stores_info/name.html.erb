@@ -7,6 +7,8 @@
   <div class="stores-wrapper flex">
     <div class="stores">
       <% if @rests  %>
+      
+      <!--<!%= will_paginate @some_rests %>-->
       <% @rests.each do |rest| %>
         <p class="store-wrapper flex culmn">
         <!--<a href="#">-->
@@ -25,7 +27,6 @@
       <% else %>
         検索結果がありませんでした
       <% end %>
-      
     </div>
   </div>
 </body>
