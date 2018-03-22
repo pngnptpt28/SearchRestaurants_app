@@ -32,10 +32,12 @@ class StoresInfoController < ApplicationController
       return params
     end
 
-    url =  uri + to_params({'format'=>format, 'keyid'=>ENV["GNAVI_ACC_KEY"], 'latitude'=>lat, 'longitude'=>lon, 'range'=>range})
+    url =  uri + to_params({'format'=>format, 'keyid'=>ENV["GNAVI_ACC_KEY"], 'latitude'=>lat, 'longitude'=>lon, 'range'=>range, 'hit_per_page'=>100})
     json = Net::HTTP.get(URI.parse(url))
 
     @rests = JSON.parse(json)["rest"]
+    @count = JSON.parse(json)["total_hit_count"]
+    # puts @rests.length
 
     # # map : 各要素に同じ挙動させる
     # rests.map{ |rest|
