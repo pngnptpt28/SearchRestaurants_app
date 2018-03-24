@@ -1,8 +1,5 @@
 class StoresInfoController < ApplicationController
   def input
-  end
-  
-  def name
     require 'open-uri'
     require 'json'
     require 'net/http'
@@ -14,7 +11,7 @@ class StoresInfoController < ApplicationController
     lat = params[:lat]
     lon = params[:lon] 
     range = params[:range]
-    @range = range
+    # @range = range
 
     # function : hash->paramater
     def to_params(params_h)
@@ -35,19 +32,20 @@ class StoresInfoController < ApplicationController
     
     @rests = JSON.parse(json)["rest"]
     
-    rest_a = Array.new
+    # rest_a = Array.new
     
-    if @rests
-    @rests.map{ |rest|
-        # create or update
-        @rest = Rest.find_or_initialize_by(id: rest["id"])
-        @rest.update_attributes(id: rest["id"], name: rest["name"])
-        rest_a << @rest
-    }
-    end
+    # if @rests
+    # @rests.map{ |rest|
+    #     # create or update
+    #     @rest = Rest.find_or_initialize_by(id: rest["id"])
+    #     @rest.update_attributes(id: rest["id"], name: rest["name"])
+    #     # rest_a << @rest
+    # }
+    # end
     
-    # @some_rests = rest_a.paginate(:page => params[:page], :per_page => 10)
-    
+  end
+  
+  def index
   end
   
   def detail
