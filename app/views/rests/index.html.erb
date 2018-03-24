@@ -10,8 +10,8 @@
   <div class="stores-wrapper flex">
     <div class="stores">
     <% if @_rests_id  %>
-    
-      <!--<!%= will_paginate @some_rests %>-->
+      
+      <nav>
       <%= paginate @some_rests %>
       
       <% @some_rests.each do |rest_id| %>
@@ -29,8 +29,8 @@
           </span>
         </p>
       <% end %>
-      
       <%= paginate @some_rests %>
+      </nav>
       <% else %>
         検索結果がありませんでした
       <% end %>
