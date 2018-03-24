@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '5.1.4'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'kaminari'
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'

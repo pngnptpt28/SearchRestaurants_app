@@ -46,7 +46,7 @@ class RestsController < ApplicationController
         p "------------------------------@rest id name(in create) =", @rest["id"], @rest["name"]   #debug
         @rests_id << @rest["id"]
       }
-      p "------------------------------@rests_id (in create) =", @rests_id   #debug
+      # p "------------------------------@rests_id (in create) =", @rests_id   #debug
       
       # Save value(@rests_id)
       session[:rests_id] = @rests_id
@@ -62,8 +62,11 @@ class RestsController < ApplicationController
     # Get value(@rest_a)
     @_rests_id = session[:rests_id]
     
-    p "------------------------------@_rests_id (in index) =", @_rests_id   #debug
+    # paging(10 on each page)
+    @some_rests = Kaminari.paginate_array(@_rests_id).page(params[:page]).per(10)
     
+    # p "------------------------------@_rests_id (in index) =", @_rests_id   #debug
+    # p "------------------------------@some_rests(in index) =", @some_rests   #debug
   end
   
   def show

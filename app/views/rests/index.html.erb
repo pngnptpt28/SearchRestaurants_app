@@ -12,7 +12,9 @@
     <% if @_rests_id  %>
     
       <!--<!%= will_paginate @some_rests %>-->
-      <% @_rests_id.each do |rest_id| %>
+      <%= paginate @some_rests %>
+      
+      <% @some_rests.each do |rest_id| %>
         <% @rest = Rest.find(rest_id) %>
         <p class="store-wrapper flex culmn">
         
@@ -27,6 +29,8 @@
           </span>
         </p>
       <% end %>
+      
+      <%= paginate @some_rests %>
       <% else %>
         検索結果がありませんでした
       <% end %>
