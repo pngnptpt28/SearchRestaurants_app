@@ -1,22 +1,17 @@
 <h1>レストラン検索</h1>
 
-<body>
-  <div class="about-wrapper">
-    <p>周辺のレストラン</p>
-    <!--<!%= debug @_rests_id %>-->
-    <!--<!%= debug params %>-->
-    <!--<!%= debug @rest_a %>-->
-  </div>
-  <div class="stores-wrapper flex">
-    <div class="stores">
+<!--<body>-->
+<div class="page-about center">
+  周辺のレストラン
+</div>
+<div class="stores-wrapper flex">
+    <ul class="stores">
     <% if @_rests_id  %>
-      
       <nav>
       <%= paginate @some_rests %>
-      
       <% @some_rests.each do |rest_id| %>
         <% @rest = Rest.find(rest_id) %>
-        <p class="store-wrapper flex culmn">
+        <li class="store-wrapper flex culmn">
         
           <span class="img-wrapper row">
             <!--<img src="<!%= rest["image_url"]["shop_image1"] %>"/>-->
@@ -27,13 +22,12 @@
             <br>
             <!--<span>現在地から<!%= rest["access"]["walk"] %>分</span>-->
           </span>
-        </p>
+        </li>
       <% end %>
       <%= paginate @some_rests %>
       </nav>
       <% else %>
         検索結果がありませんでした
       <% end %>
-    </div>
-  </div>
-</body>
+    </ul>
+</div>

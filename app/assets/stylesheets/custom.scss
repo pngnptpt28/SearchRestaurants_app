@@ -4,7 +4,9 @@
 /* universal */
 
 body {
-  padding-top: 20px;
+  padding-top: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .center {
@@ -23,7 +25,34 @@ body {
   flex-direction:  row;
 }
 
-/* name */
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-left: 10px;
+  padding-top: 15px;
+  font-weight: bold;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+header{
+  .icon{
+    float: left;
+    padding-left: 15px;
+    color: #fff;
+    padding-top: 17.5px;
+  }
+}
+
+
+/* rests :create*/
 .stores-wrapper{
   width: max;
   text-align:center;
@@ -73,7 +102,11 @@ body {
   }
 }
 
-/* input */
+/* rests :search */
+
 .page-about{
   padding:10px;
 }
+
+/* rests :show */
+
