@@ -48,31 +48,36 @@ class RestsController < ApplicationController
       if @rests
         @start_time_DB = Time.now               # debug
         
-        # # DB create or update　(Parallel processing)
-        # Paralle.map(@rests) do |rest|
-        #   @rest = Rest.find_or_initialize_by(id: rest["id"])
-        #   @rest.update_attributes(id: rest["id"], name: rest["name"], station: rest["access"]["station"], 
-        #                           walk: rest["access"]["walk"], shop_image1: rest["image_url"]["shop_image1"], 
-        #                           shop_image2: rest["image_url"]["shop_image2"], address: rest["address"],
-        #                           tel: rest["tel"], opentime: rest["opentime"])
-        # end
-        
-        # # Pass each ID to array
-        # @rests.map{ |rest|
-        #   @rests_id << rest["id"]
-        # }
-        
-        # Pass each ID to array
-        @rests.map{ |rest|
-          # DB create or update
+        # DB create or update
+        @rests.each{ |rest|
           @rest = Rest.find_or_initialize_by(id: rest["id"])
           @rest.update_attributes(id: rest["id"], name: rest["name"], station: rest["access"]["station"], 
                                   walk: rest["access"]["walk"], shop_image1: rest["image_url"]["shop_image1"], 
                                   shop_image2: rest["image_url"]["shop_image2"], address: rest["address"],
                                   tel: rest["tel"], opentime: rest["opentime"])
-          # Pass each ID to array                        
+        }
+        
+        # Pass each ID to array
+        @rests.each{ |rest|
           @rests_id << rest["id"]
         }
+
+        # DB create or update
+        # @rest = Rest.find_or_initialize_by(@rests_id).includs(:rest)
+        # puts @rest
+
+        
+        # # Pass each ID to array
+        # @rests.each{ |rest|
+        #   # DB create or update
+        #   @rest = Rest.find_or_initialize_by(id: rest["id"])
+        #   @rest.update_attributes(id: rest["id"], name: rest["name"], station: rest["access"]["station"], 
+        #                           walk: rest["access"]["walk"], shop_image1: rest["image_url"]["shop_image1"], 
+        #                           shop_image2: rest["image_url"]["shop_image2"], address: rest["address"],
+        #                           tel: rest["tel"], opentime: rest["opentime"])
+        #   # Pass each ID to array                        
+        #   @rests_id << rest["id"]
+        # }
         
         # processing time(DB)
         @time_DB = Time.now - @start_time_DB     # debug
