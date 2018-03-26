@@ -4,7 +4,6 @@ class RestsController < ApplicationController
   end
   
   def create
-    
     require 'open-uri'
     require 'json'
     require 'net/http'
@@ -75,13 +74,12 @@ class RestsController < ApplicationController
           @rests_id << rest["id"]
         }
         
-        
         # processing time(DB)
         @time_DB = Time.now - @start_time_DB     # debug
 
         # Save value(@rests_id)
         session[:rests_id] = @rests_id
-        
+        puts "redirect!!"
         redirect_to :action => "index"
       
       else
