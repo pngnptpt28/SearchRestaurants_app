@@ -13,6 +13,15 @@ body {
   text-align: center;
 }
 
+.absolute-center{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
 .flex {
 	display: flex;
 	justify-content: center;
@@ -82,18 +91,35 @@ header{
         width:300px;
         height:200px;
       }
+      
       .img-wrapper{
         position: relative;
-        img{
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          margin: auto;
-          max-height:300px;
+        
+        .image{
+          
+          max-height:160px;
           max-width:200px;
+        
+        .no-image{
+          background: lightgray;
+          color: gray;
+          font-weight:bold;
+          display: block;
+          height:max;
+          width:max;
+          span{
+            margin-top:50px;
+            height:30px;
+            width:200px;
+          }
+        }
+        img{
+          // max-height:160px;
+          // max-width:200px;
+          max-height:max;
+          max-width:max;
         } 
+        }
       }
       .about-wrapper{
         text-align: left; 

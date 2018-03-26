@@ -10,17 +10,25 @@
       <nav>
       <%= paginate @some_rests %>
       <% @some_rests.each do |rest_id| %>
-        <% @rest = Rest.find(rest_id) %>
         <li class="store-wrapper flex culmn">
         
           <span class="img-wrapper row">
-            <!--<img src="<!%= rest["image_url"]["shop_image1"] %>"/>-->
+            <div class="image absolute-center">
+            <% if rest_id["shop_image1"]=="{}" %>
+              <p class="no-image">
+                <span class="glyphicon glyphicon-picture center"></span>
+                <span>no image</span>
+              </p>
+            <% else %>
+              <img src="<%= rest_id["shop_image1"] %>"/>
+            <% end %>
+            </div>
           </span>
           <span class="about-wrapper row">
-            <%= link_to "", rest_path(@rest["id"]) %>
-            <span><%= @rest["name"] %></span>
+            <%= link_to "", rest_path(rest_id["id"]) %>
+            <span><%= rest_id["name"] %></span>
             <br>
-            <!--<span>現在地から<!%= rest["access"]["walk"] %>分</span>-->
+            <span>現在地から<%= rest_id["walk"] %>分</span>
           </span>
         </li>
       <% end %>
