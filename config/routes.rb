@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   get     'search' =>  'rests#search'
   
   resources :rests
-  # post  '/rests'  =>  'rests#index'
   
 end

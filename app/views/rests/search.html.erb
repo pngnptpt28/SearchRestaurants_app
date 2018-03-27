@@ -1,15 +1,49 @@
 <h1>入力</h1>
 <!--<body>-->
+
 <div class="page-about center">
   現在地の緯度と経度を入力
   <!--<!%= debug params %>-->
+  <meta charset="utf-8" />
 </div>
+
 <div class="form-wrapper flex culmn">
   <%=form_tag({ :action => 'index' }) do %>
     <p>緯度 <%= text_field_tag :lat, '' %></p>
     <p>経度 <%= text_field_tag :lon, '' %></p>
-    <p>半径 <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"})  %>m 以内</p>
+    <p>半径 <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p>
     <p><%= submit_tag '送信' %></p>
   <% end %>
 </div>
+
+
+
+
+<%# --------------------------------------------------------------------------------- %>
+
+
+
+<%# <meta charset=utf-8>
+
+<script>
+
+
+
+// Use geolocation API
+navigator.geolocation.getCurrentPosition(success, error);
+
+// success
+function success(pos) {
+  var crd = pos.coords;
+
+  console.log('Your current position is:');
+  console.log('Latitude : ' + crd.latitude);
+  console.log('Longitude: ' + crd.longitude);
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+</script> %>
+
 <!--</body>-->

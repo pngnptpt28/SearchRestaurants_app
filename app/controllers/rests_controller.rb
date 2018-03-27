@@ -86,7 +86,7 @@ class RestsController < ApplicationController
         redirect_to :action => "index"
       
       else
-        # redirect_to :action => "create"
+        redirect_to :action => "create"
       end
     @time_ALL = Time.now - @start_time_ALL       # debug
     p "処理時間", "DB: #{@time_DB}s","API: #{@time_API}s", "ALL: #{@time_ALL}s"     # debug
