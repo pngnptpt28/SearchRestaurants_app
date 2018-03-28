@@ -1,9 +1,14 @@
 class RestsController < ApplicationController
+  
   def search
     
   end
+
   
   def create
+
+    session[:rests_id] = @rests_id
+
     require 'open-uri'
     require 'json'
     require 'net/http'
@@ -86,15 +91,18 @@ class RestsController < ApplicationController
         redirect_to :action => "index"
       
       else
-        redirect_to :action => "create"
+        # redirect_to :action => "create"
       end
     @time_ALL = Time.now - @start_time_ALL       # debug
     p "処理時間", "DB: #{@time_DB}s","API: #{@time_API}s", "ALL: #{@time_ALL}s"     # debug
   end
+
   
   def index
     # Get value(@rest_a) & find data from DB(Resr)
+    @_results = session[:results] 
     @_rests_id = session[:rests_id]
+
     @rests = Rest.find(@_rests_id)
     
     # paging(10 on each page)

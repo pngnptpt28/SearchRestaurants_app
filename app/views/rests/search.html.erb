@@ -1,49 +1,108 @@
 <h1>入力</h1>
 <!--<body>-->
 
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+//	jQuery GPS
+function geoFindMe() {
+	// output (id=out)
+  var output = document.getElementById("out");
+  var lat_output = document.getElementById("lat_out");
+  var lon_output = document.getElementById("lon_out");
+	
+	// can't use Geolocation
+	if (!navigator.geolocation){
+	  output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+	  return;
+	}
+	
+	// succes
+	function success(position) {
+	  var latitude  = position.coords.latitude;
+	  var longitude = position.coords.longitude;
+  
+    // output.innerHTML = '<p>Latitude : ' + latitude + '° <br>Longitude : ' + longitude + '°</p>';
+    output.innerHTML = '';
+    lat_output.innerHTML = '<p>Latitude : ' + latitude + '°</p>';
+    lon_output.innerHTML = '<p>Longitude : ' + longitude + '°</p>';
+	};
+  
+	// error
+  function error(error) {
+    var err_msg = "";
+    switch(error.code)
+    {
+      case 1:
+        err_msg = "permission denied";
+        break;
+      case 2:
+        err_msg = "	Position unnavailable";
+        break;
+      case 3:
+        err_msg = "time out";
+        break;
+  }
+  output.innerHTML = err_msg;
+};
+  
+  //option
+  var options = {
+  enableHighAccuracy: false,  // low
+  maximumAge        : 30000,  // 30s
+  timeout           : 10000   // 10s
+};
+  
+	// loading
+  output.innerHTML = "<p>Locating…</p>";
+  
+
+  //  // エレメントを作成
+  //   var ele = document.createElement('input');
+  //   // データを設定
+  //   ele.setAttribute('type', 'hidden');
+  //   ele.setAttribute('name', 'hoge');
+  //   ele.setAttribute('value', 'テスト');
+  //   // 要素を追加
+  //   document.location-form.appendChild(ele);
+  
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+  
+}
+
+
+</script>
+
+
+
+
+
 <div class="page-about center">
   現在地の緯度と経度を入力
-  <!--<!%= debug params %>-->
-  <meta charset="utf-8" />
+  <!--<!%= debug params-->
+  <%# <meta charset="utf-8" /> %>
 </div>
 
-<div class="form-wrapper flex culmn">
+<p><button onclick="geoFindMe()">Show my location</button></p>
+
+<div id="out"></div>
+
+<div id="lat_out"></div>
+<div id="lon_out"></div>
+
+<div class="form-wrapper flex culmn" id="location-form">
   <%=form_tag({ :action => 'index' }) do %>
     <p>緯度 <%= text_field_tag :lat, '' %></p>
     <p>経度 <%= text_field_tag :lon, '' %></p>
     <p>半径 <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p>
     <p><%= submit_tag '送信' %></p>
   <% end %>
+
+
+
 </div>
 
-
-
-
-<%# --------------------------------------------------------------------------------- %>
-
-
-
-<%# <meta charset=utf-8>
-
-<script>
-
-
-
-// Use geolocation API
-navigator.geolocation.getCurrentPosition(success, error);
-
-// success
-function success(pos) {
-  var crd = pos.coords;
-
-  console.log('Your current position is:');
-  console.log('Latitude : ' + crd.latitude);
-  console.log('Longitude: ' + crd.longitude);
-};
-
-function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
-};
-</script> %>
-
-<!--</body>-->
