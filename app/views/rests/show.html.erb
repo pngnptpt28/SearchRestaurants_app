@@ -2,9 +2,37 @@
 <div class="page-about center">
   店舗詳細
 </div>
-<p><%= @rest.name %></p>
-<img src="<%= @rest.shop_image1 %>"/>
-<img src="<%= @rest.shop_image2 %>"/>
-<p><%= @rest.address %></p>
-<p><%= @rest.tel %></p>
-<p><%= @rest.opentime %></p>
+<div class="restdetail-wrapper center column">
+  <div class="name">
+   <h3><%= @rest.name %></h3>
+  </div>
+
+  <div class="flex img-wrapper">
+    <span class="img1-wrapper relative">
+    <% if @rest.shop_image1 == "{}" %>
+        <div class="absolute-center">
+          <span class="glyphicon glyphicon-picture text"><br>no image</span>
+        </div>
+   <% else %>
+      <img src="<%= @rest.shop_image1 %>"/>
+    <% end %>
+    </span>
+    <span class="img2-wrapper relative">
+    <% if @rest.shop_image2 == "{}" %>
+        <div class="absolute-center">
+          <span class="glyphicon glyphicon-picture text"><br>no image</span>
+        </div>
+    <% else %>
+      <img src="<%= @rest.shop_image2 %>"/>
+    <% end %>
+    </span>
+  </div>
+  
+  <%# <img src="<%= @rest.shop_image1 %>
+  <%# <img src="<%= @rest.shop_image2 %>
+  <div>
+    <p><%= @rest.address %></p>
+    <p><%= @rest.tel %></p>
+    <p><%= @rest.opentime %></p>
+  <div>
+</div>

@@ -13,6 +13,10 @@ body {
   text-align: center;
 }
 
+.relative{
+  position:relative;
+}
+
 .absolute-center{
   position: absolute;
   top: 0;
@@ -40,6 +44,10 @@ body {
 
 .pagination { color: red }
 
+.flash{
+  color: red;
+}
+
 /* header */
 
 #logo {
@@ -65,20 +73,26 @@ header{
   }
 }
 
+/* rests :search */
+#location-form{
+  div{
+    padding: 10px;
+  }
+}
+
+
 
 /* rests :index*/
   
-  
+.store-wrapper{
+  width: 650px;
+}
+
   .stores{
     text-align:center;
-    // width:600px;
-
-    li{
-      // background: black;
-    }
+    padding: 0;
     
     .store-wrapper{
-      position:relative;
       height:200px;
       border-bottom: 1px solid gray;
 
@@ -97,7 +111,6 @@ header{
       }
       
       .img-wrapper{
-        position: relative;
         .image{
           
           max-height:160px;
@@ -106,16 +119,20 @@ header{
         .no-image{
           background: lightgray;
           color: gray;
-          font-weight:bold;
           display: block;
-          height:max;
-          width:max;
-          span{
-            margin-top:50px;
-            height:30px;
-            width:200px;
+          height:100%;
+          width:100%;
+          .glyphicon-picture{
+            top: 35%;
+            width: 100%;
+            height: 100%;
+          }
+          .text{
+            font-weight: bold;
+            line-height: 20px;
           }
         }
+
         img{
           max-height:160px;
           max-width:200px;
@@ -127,7 +144,7 @@ header{
       .about-wrapper{
         text-align: left; 
         width:max/2;
-          padding:40px;
+          padding:40px 0;
           a{
             color: gray;
             text-decoration: none;
@@ -136,9 +153,34 @@ header{
     }
   }
 
-/* rests :search */
-
-
-
 /* rests :show */
 
+.restdetail-wrapper{
+  .name{
+  }
+  div{
+    padding: 20px 0;
+  }
+  .img-wrapper{
+    height: 350px;
+    margin: 0 50px;
+
+    img{
+      height: 300px;
+    }
+
+    .img1-wrapper{
+      width: 50%;
+      position: absolute;
+      left: 0;
+    }
+    .img2-wrapper{
+      width: 50%;
+      position: absolute;
+      right: 0;
+    }
+    .no-image{
+      background: gray;
+    }
+  }
+}

@@ -20,9 +20,15 @@ class RestsController < ApplicationController
       uri   = 'https://api.gnavi.co.jp/RestSearchAPI/20171213/'
 
       format= "json"
-      lat = params[:lat]
-      lon = params[:lon] 
+
+      lat = params[:include_lat]
+      lon = params[:include_lon]
+
       range = params[:range]
+
+      # from hidden_form value
+      session[:include_lat] = params[:include_lat]
+      session[:include_lon] = params[:include_lon]
     
       # function : hash->paramater
       def to_params(params_h)
@@ -46,16 +52,27 @@ class RestsController < ApplicationController
       @time_API = Time.now - @start_time_API    # debug
       
       @rests_json = JSON.parse(json)["rest"]
+
+      p "----------------------------------------------------rests_json", @rests_json
+      
       
       @rests_id = Array.new
     
       
       if @rests_json
+
         @start_time_DB = Time.now               # debug
         
         # DB create or update(N+1)
         p "---------------------------------N+1"
+        p "----------------------------------aray???", @rests_json.instance_of?(Array)
+        p "----------------------------------class", @rests_json.class
+
         @rests_json.each{ |rest|
+          
+          p "----------------------------------------------------rest(each)", rest
+
+
           # DB create or update
           @rest = Rest.find_or_initialize_by(id: rest["id"])
           @rest.update_attributes(id: rest["id"], name: rest["name"], station: rest["access"]["station"], 
@@ -87,11 +104,11 @@ class RestsController < ApplicationController
 
         # Save value(@rests_id)
         session[:rests_id] = @rests_id
-        puts "redirect!!"
         redirect_to :action => "index"
       
       else
-        # redirect_to :action => "create"
+        flash[:notice] = "該当する店鋪がありませんでした"
+        redirect_to :action => "search"
       end
     @time_ALL = Time.now - @start_time_ALL       # debug
     p "処理時間", "DB: #{@time_DB}s","API: #{@time_API}s", "ALL: #{@time_ALL}s"     # debug

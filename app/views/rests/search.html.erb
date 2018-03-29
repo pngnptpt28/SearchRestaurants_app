@@ -6,102 +6,99 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+
+
 //	jQuery GPS
 function geoFindMe() {
-	// output (id=out)
+
   var output = document.getElementById("out");
-  var lat_output = document.getElementById("lat_out");
-  var lon_output = document.getElementById("lon_out");
+  var include_lat = document.getElementById("include_lat");
+  var include_lon = document.getElementById("include_lon");
 	
 	// can't use Geolocation
 	if (!navigator.geolocation){
-	  output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+	  output.innerHTML = "<p>Geolocationがブラウザ非対応です</p>";
 	  return;
 	}
 	
 	// succes
 	function success(position) {
+    // include latitude and lontitude
 	  var latitude  = position.coords.latitude;
 	  var longitude = position.coords.longitude;
   
-    // output.innerHTML = '<p>Latitude : ' + latitude + '° <br>Longitude : ' + longitude + '°</p>';
     output.innerHTML = '';
-    lat_output.innerHTML = '<p>Latitude : ' + latitude + '°</p>';
-    lon_output.innerHTML = '<p>Longitude : ' + longitude + '°</p>';
+    // put the value in the form
+    include_lat.value = latitude;
+    include_lon.value = longitude;
+
+
 	};
   
 	// error
   function error(error) {
     var err_msg = "";
+    //error message
     switch(error.code)
     {
       case 1:
-        err_msg = "permission denied";
+        err_msg = "error：位置情報取得が許可されていません";
         break;
       case 2:
-        err_msg = "	Position unnavailable";
+        err_msg = "error：位置が判定出来ませんでした";
         break;
       case 3:
-        err_msg = "time out";
+        err_msg = "error：タイムアウト";
         break;
-  }
-  output.innerHTML = err_msg;
-};
+    }
+    output.innerHTML = err_msg;
+  };
   
   //option
   var options = {
-  enableHighAccuracy: false,  // low
-  maximumAge        : 30000,  // 30s
-  timeout           : 10000   // 10s
-};
+    enableHighAccuracy: true,   // High accuracy
+    maximumAge        : 0,      // Always get the latest value
+    timeout           : 10000   // 10s
+  };
   
 	// loading
-  output.innerHTML = "<p>Locating…</p>";
+  output.innerHTML = "<p>Searching...</p>";
   
-
-  //  // エレメントを作成
-  //   var ele = document.createElement('input');
-  //   // データを設定
-  //   ele.setAttribute('type', 'hidden');
-  //   ele.setAttribute('name', 'hoge');
-  //   ele.setAttribute('value', 'テスト');
-  //   // 要素を追加
-  //   document.location-form.appendChild(ele);
-  
+  // use geolocation API
   navigator.geolocation.getCurrentPosition(success, error, options);
 
-
-  
 }
 
 
 </script>
 
 
-
-
-
 <div class="page-about center">
-  現在地の緯度と経度を入力
+  店舗を検索
   <!--<!%= debug params-->
   <%# <meta charset="utf-8" /> %>
 </div>
 
-<p><button onclick="geoFindMe()">Show my location</button></p>
+<div class="center culmn" id="location-form">
 
-<div id="out"></div>
+  <div class="flash center">
+    <%= h(flash[:notice]) %>
+  </div>
 
-<div id="lat_out"></div>
-<div id="lon_out"></div>
+  <div>
+  <p><button onclick="geoFindMe()">位置情報を取得</button></p>
+  <p id="out"></p>
 
-<div class="form-wrapper flex culmn" id="location-form">
+  </div>
+
+  <div>
   <%=form_tag({ :action => 'index' }) do %>
-    <p>緯度 <%= text_field_tag :lat, '' %></p>
-    <p>経度 <%= text_field_tag :lon, '' %></p>
-    <p>半径 <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p>
-    <p><%= submit_tag '送信' %></p>
+    <p>緯度   <%= text_field_tag :include_lat, '' %></p>
+    <p>経度   <%= text_field_tag :include_lon, '' %></p>
+    <p>半径   <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p> 
+    <p><br><%= submit_tag '送信' %></p>
   <% end %>
-
+  </div>
 
 
 </div>
