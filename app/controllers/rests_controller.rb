@@ -63,15 +63,26 @@ class RestsController < ApplicationController
 
         @start_time_DB = Time.now               # debug
         
-        # DB create or update(N+1)
-        p "---------------------------------N+1"
-        p "----------------------------------aray???", @rests_json.instance_of?(Array)
+      
+        p "----------------------------------array???", @rests_json.instance_of?(Array)
         p "----------------------------------class", @rests_json.class
 
-        @rests_json.each{ |rest|
-          
-          p "----------------------------------------------------rest(each)", rest
+        p "----------------------------------json", @rests_json
 
+
+        # Measures when search store is one
+        # (search sotore is ... some: json(Array) , one: json(Hash))
+        @_rests_json = Array.new
+        if @rests_json.instance_of?(Array)
+          @_rests_json = @rests_json        # As it is (Array)
+        else
+          @_rests_json[0] = @rests_json     # Array <- Hash
+        end
+
+
+        # DB create or update(N+1)
+        p "---------------------------------N+1"
+        @_rests_json.each{ |rest|
 
           # DB create or update
           @rest = Rest.find_or_initialize_by(id: rest["id"])
