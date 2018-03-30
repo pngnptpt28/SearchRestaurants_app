@@ -9,22 +9,26 @@
 
   <div class="flex img-wrapper">
     <span class="img1-wrapper relative">
-    <% if @rest.shop_image1 == "{}" %>
-        <div class="absolute-center">
-          <span class="glyphicon glyphicon-picture text"><br>no image</span>
-        </div>
-   <% else %>
-      <img src="<%= @rest.shop_image1 %>"/>
-    <% end %>
+      <div class="image absolute-center">
+        <% if @rest.shop_image1 == "{}" %>
+          <div class="no-image absolute-center">
+            <span class="glyphicon glyphicon-picture text"><br>no image</span>
+          </div>
+        <% else %>
+          <img src="<%= @rest.shop_image1 %>"/>
+        <% end %>
+      </div>
     </span>
     <span class="img2-wrapper relative">
-    <% if @rest.shop_image2 == "{}" %>
-        <div class="absolute-center">
-          <span class="glyphicon glyphicon-picture text"><br>no image</span>
-        </div>
-    <% else %>
-      <img src="<%= @rest.shop_image2 %>"/>
-    <% end %>
+      <div class="image absolute-center">
+        <% if @rest.shop_image2 == "{}" %>
+          <div class="no-image absolute-center">
+            <span class="glyphicon glyphicon-picture text"><br>no image</span>
+          </div>
+        <% else %>
+          <img src="<%= @rest.shop_image2 %>"/>
+        <% end %>
+      </div>
     </span>
   </div>
   
