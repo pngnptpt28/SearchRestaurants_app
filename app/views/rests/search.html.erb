@@ -1,7 +1,4 @@
-<h1>入力</h1>
-<!--<body>-->
-
-
+<title>SearchRestaurantsApp</title>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -73,11 +70,7 @@ function geoFindMe() {
 </script>
 
 
-<div class="page-about center">
-  店舗を検索
-  <!--<!%= debug params-->
-  <%# <meta charset="utf-8" /> %>
-</div>
+<h3 class="page-about center"><span class="glyphicon glyphicon-send"></span>店舗を検索<p></p></h3>
 
 <div class="center culmn" id="location-form">
 
@@ -86,17 +79,22 @@ function geoFindMe() {
   </div>
 
   <div>
-  <p><button onclick="geoFindMe()">位置情報を取得</button></p>
+  <%# <p><button onclick="geoFindMe()">位置情報を取得</button></p> %>
+  <button type="button" onclick="geoFindMe()" class="location-btn btn-default btn-lg relative">
+  <p><span class="glyphicon glyphicon-screenshot"></span><span class="">位置情報 取得</span></p>
+  </button>
   <p id="out"></p>
 
   </div>
 
-  <div>
+  <div class="form">
   <%=form_tag({ :action => 'index' }) do %>
     <p>緯度   <%= text_field_tag :include_lat, '' %></p>
     <p>経度   <%= text_field_tag :include_lon, '' %></p>
     <p>半径   <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p> 
-    <p><br><%= submit_tag '送信' %></p>
+    <%= button_tag( class: "btn") do %>
+      <%= content_tag :span, "", class: "glyphicon glyphicon-search" %>
+    <% end %>
   <% end %>
   </div>
 

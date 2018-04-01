@@ -1,16 +1,6 @@
 FactoryBot.define do
-  # factory :rest do
-  #   id    "test1"
-  #   name  "Rest hoge"
-  #   station "test station"
-  #   walk  10
-  #   shop_image1 "img_url1"
-  #   shop_image2 "img_url2"
-  #   address "Test test 111-222"
-  #   tel "1234-5678"
-  #   opentime "0:00"
-  # end
 
+  # create some rests model
   factory :rest do
     sequence(:id) { |n| "test_#{n}"}
     sequence(:name) { |n| "Rest TEST#{n}"}

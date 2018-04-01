@@ -12,6 +12,9 @@ body {
 .center {
   text-align: center;
 }
+.right {
+  text-align: right
+}
 
 .relative{
   position:relative;
@@ -38,15 +41,33 @@ body {
   flex-direction:  row;
 }
 
-.page-about{
-  padding:30px;
-}
-
 .pagination { color: red }
 
 .flash{
   color: red;
 }
+
+.under-line{
+  border-bottom: 1px solid lightgray;
+}
+
+.glyphicon{
+  padding-right: 8px;
+}
+
+.page-about{
+  padding-top: 50px;
+  p{
+    padding: 0px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 0.5px solid gray;
+  }
+  .glyphicon{
+    padding-right: 18px; 
+  }
+}
+
 
 /* header */
 
@@ -79,6 +100,34 @@ header{
     padding: 10px;
   }
 }
+.location-btn{
+  font-size: 13px;
+  p{
+    margin: auto;
+  }
+  .glyphicon{
+    margin-right: 5px;
+  }
+}
+.btn-lg {
+  padding: 10px 10px;
+}
+
+.btn-sm {
+  padding: 13px 16px;
+}
+
+.form{
+  p{
+    padding: 5px;
+  }
+}
+
+#out{
+  margin-top: 15px;
+  color: gray;
+  font-weight: inherit;
+}
 
 
 
@@ -94,7 +143,6 @@ header{
     
     .store-wrapper{
       height:200px;
-      border-bottom: 1px solid gray;
 
       a{
       position:absolute;
@@ -156,6 +204,7 @@ header{
 /* rests :show */
 
 .restdetail-wrapper{
+  padding: 0 100px;
   .name{
   }
   div{
@@ -163,7 +212,6 @@ header{
   }
   .img-wrapper{
     height: 50%;
-    margin: 0 50px;
 
     img{
       height: 300px;
@@ -198,5 +246,13 @@ header{
         line-height: 20px;
       }
     }
+  }
+
+  .details-wrapper{
+    
+    display: inline-block;
+      p{
+        text-align: left;
+      }
   }
 }

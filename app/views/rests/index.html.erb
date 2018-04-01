@@ -1,9 +1,6 @@
-<h1>レストラン検索</h1>
+<title>SearchRestaurantsApp | Result</title>
 
-<!--<body>-->
-<div class="page-about center">
-  周辺のレストラン
-</div>
+<h3 class="page-about center"><span class="glyphicon glyphicon-tree-deciduous"></span>周辺レストラン<p></p></h3>
 
 <div class="stores-wrapper flex relative">
     <ul class="stores culumn">
@@ -11,7 +8,7 @@
       <nav>
       <%= paginate @some_rests %>
       <% @some_rests.each do |rest_id| %>
-        <li class="store-wrapper flex relative">
+        <li class="store-wrapper flex relative under-line">
         
           <span class="img-wrapper relative">
             <div class="image absolute-center">
@@ -33,7 +30,7 @@
             <%= link_to "", rest_path(rest_id["id"]) %>
             <span><%= rest_id["name"] %></span>
             <br>
-            <span>現在地から<%= rest_id["walk"] %>分</span>
+            <span>現在地から徒歩<%= rest_id["walk"] %>分</span>
           </span>
         </li>
       <% end %>
