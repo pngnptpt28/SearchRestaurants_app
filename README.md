@@ -23,6 +23,8 @@ It is a simple search application for busy mans.
     $ gem install bundler
     $ bundle install
 
+    $ rake db:migrate
+
 ## Author
 
 Notsu Futaba
