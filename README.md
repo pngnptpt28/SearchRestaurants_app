@@ -16,12 +16,19 @@ It is a simple search application for busy mans.
 
 ## Installation
 
+Please clone the repository
+
     $ git clone https://github.com/pngnptpt28/SearchRestaurants_app
 
+Install rubyGems
     $ gem install bundler
     $ bundle install
 
-    $ rake db:migrate
+Migrate to database
+    $ rails db:migrate
+
+Please launch the Rails server and launch the application
+    $ rails server
 
 ## Usage
 Create a .env file in the root directory of your project. 
