@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Busy Man Restaurants
 
-Things you may want to cover:
+<!-- ![Badge Status](https://ci-as-a-service) -->
 
-* Ruby version
+Restaurant search application for busy people.
 
-* System dependencies
+## Description
 
-* Configuration
+Search nearby restaurants from your current location.
+It is a simple search application for busy mans.
 
-* Database creation
+## Requirement
 
-* Database initialization
+- rails 5.1.4
+- ruby 2.5
+- sqlite3 1.3.13
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+    $ git clone https://github.com/pngnptpt28/SearchRestaurants_app
+    or
+    put file:"Searchrestaurants_app" in your workspace
 
-* ...
+    gem install bundler
+    bundle install
+
+## Author
+
+Notsu Futaba

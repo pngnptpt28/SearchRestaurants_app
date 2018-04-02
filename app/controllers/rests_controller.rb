@@ -9,7 +9,6 @@ class RestsController < ApplicationController
     require 'json'
     require 'net/http'
     require 'uri'
-    require 'parallel'
     
     uri   = 'https://api.gnavi.co.jp/RestSearchAPI/20171213/'
     format = "json"

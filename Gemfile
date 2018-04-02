@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails',        '5.1.4'
 gem 'kaminari'
-# gem 'will_paginate'
-# gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -13,7 +11,6 @@ gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'dotenv-rails'
-gem 'parallel'
 gem 'bullet', group: 'development'
 
 group :development, :test do
