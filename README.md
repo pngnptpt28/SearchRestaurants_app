@@ -23,6 +23,13 @@ It is a simple search application for busy mans.
 
     $ rake db:migrate
 
+## Usage
+Create a .env file in the root directory of your project. 
+Add access key provided from GuruNavi. For example:
+
+    GNAVI_ACC_KEY= "your_gnavi_acc_key"
+
+
 ## Author
 
 Notsu Futaba
