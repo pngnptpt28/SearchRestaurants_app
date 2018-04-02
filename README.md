@@ -1,6 +1,5 @@
 # Busy Man Restaurants
 
-<!-- ![Badge Status](https://ci-as-a-service) -->
 
 Restaurant search application for busy people.
 
@@ -16,7 +15,6 @@ It is a simple search application for busy mans.
 - sqlite3 1.3.13
 
 ## Installation
-
 
     $ git clone https://github.com/pngnptpt28/SearchRestaurants_app
 
