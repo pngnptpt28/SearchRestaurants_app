@@ -1,5 +1,3 @@
-# README
-
 # Busy Man Restaurants
 
 <!-- ![Badge Status](https://ci-as-a-service) -->
