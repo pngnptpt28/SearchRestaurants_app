@@ -21,11 +21,9 @@ It is a simple search application for busy mans.
 
 
     $ git clone https://github.com/pngnptpt28/SearchRestaurants_app
-    or
-    put file:"Searchrestaurants_app" in your workspace
 
-    gem install bundler
-    bundle install
+    $ gem install bundler
+    $ bundle install
 
 ## Author
 
