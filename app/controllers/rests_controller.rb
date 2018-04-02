@@ -54,6 +54,8 @@ class RestsController < ApplicationController
   
   def show
     @rest = Rest.find(params[:id])
+    @url = request.url
+    p "----------------------ulr", @url
   end
 
 

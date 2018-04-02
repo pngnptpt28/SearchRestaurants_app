@@ -12,8 +12,11 @@ body {
 .center {
   text-align: center;
 }
+.left {
+  text-align: left;
+}
 .right {
-  text-align: right
+  text-align: right;
 }
 
 .relative{
@@ -254,5 +257,10 @@ header{
       p{
         text-align: left;
       }
+  }
+  .share-wrapper{
+    margin-top: 10px;
+    margin-right: 10px;
+      color: grey;
   }
 }
