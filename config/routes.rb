@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root                'rests#search'
-  get     'search' =>  'rests#search'
+  get     '/signup' =>  'users#new'
+
+  root                  'rests#search'
+  get     'search'  =>  'rests#search'
   
   resources :rests
   
