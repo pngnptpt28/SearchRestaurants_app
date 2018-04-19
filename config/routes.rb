@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get     'search'  =>  'rests#search'
   
   resources :rests
+  resources :users
   
 end

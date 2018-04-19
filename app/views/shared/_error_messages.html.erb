@@ -1,0 +1,13 @@
+<%# User form error error messages %>
+<% if @user.errors.any? %>
+  <div id="error">
+    <div class="alert alert-danger">
+        <%= @user.errors.count %>個エラーがあります
+    </div>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

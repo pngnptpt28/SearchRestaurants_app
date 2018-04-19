@@ -71,6 +71,26 @@ body {
   }
 }
 
+#error{
+  color: red;
+  text-align: left;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: rosybrown;
+  }
+}
+
+.btn-lg {
+  padding: 10px 10px;
+}
+
+.btn-sm {
+  padding: 13px 16px;
+}
+
 
 /* header */
 
@@ -97,12 +117,31 @@ header{
   }
 }
 
+/* form */
+.form{
+  display: inline-block;
+  p{
+    padding: 5px;
+  }
+
+  input, select{
+    width: 100%;
+  }
+}
+
+.sign-up-form{
+  margin-top: 50px;
+}
+
+
+
 /* rests :search */
 #location-form{
   div{
     padding: 10px;
   }
 }
+
 .location-btn{
   font-size: 13px;
   p{
@@ -110,19 +149,6 @@ header{
   }
   .glyphicon{
     margin-right: 5px;
-  }
-}
-.btn-lg {
-  padding: 10px 10px;
-}
-
-.btn-sm {
-  padding: 13px 16px;
-}
-
-.form{
-  p{
-    padding: 5px;
   }
 }
 

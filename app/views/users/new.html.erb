@@ -1,9 +1,25 @@
+<h3 class="page-about center"><span class="glyphicon glyphicon-pencil"></span>ユーザ登録<p></p></h3>
 
-<h3 class="page-about center"><span class="glyphicon glyphicon-send"></span>ユーザ登録<p></p></h3>
-
-<div class="center culmn" id="location-form">
-
-  
-
+<div class="center culmn">
+  <div class="form sign-up-form">
+    <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+        <p>
+            <%= f.label :name, "名前" %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </p>
+        <p>
+            <%= f.label :password, "パスワード" %>
+            <%= f.password_field :password, class: 'form-control' %>
+        </p>
+        <p>
+            <%= f.label :password_confirmation, "パスワード(確認)" %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </p>
+        <%= button_tag( class: "btn") do %>
+            <%= content_tag :span, "", class: "glyphicon glyphicon-plus" %>
+        <% end %>
+    <% end %>
+  </div>
 
 </div>

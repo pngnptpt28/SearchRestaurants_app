@@ -26,6 +26,10 @@ module SearchRestaurantsApp
                        request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+
+    # To change lang = japanese
+    config.i18n.default_locale = :ja
+
     
   end
   
