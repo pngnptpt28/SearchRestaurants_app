@@ -88,9 +88,18 @@ function geoFindMe() {
 
   <div class="form">
   <%=form_tag({ :action => 'index' }) do %>
-    <p>緯度   <%= text_field_tag :include_lat, '' %></p>
-    <p>経度   <%= text_field_tag :include_lon, '' %></p>
-    <p>半径   <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p> 
+    <div>緯度   <%= text_field_tag :include_lat, '' %></div>
+    <div>経度   <%= text_field_tag :include_lon, '' %></div>
+
+    <p>半径   <%= select_tag :range, options_for_select({"300" => "1", "500" => "2", "1000" => "3", "2000" => "4", "3000" => "5"}) %> m 以内</p>
+
+    <%# 300<%= radio_button 'range', '1', {} %> %>
+    <%# 500<%= radio_button 'range', '2', {} %> %>
+    <%# 1000<%= radio_button 'range', '3', {} %> %>
+    <%# 2000<%= radio_button 'range', '4', {} %> %>
+    <%# 3000<%= radio_button 'range', '5', {} %> %>
+
+    
     <%= button_tag( class: "btn") do %>
       <%= content_tag :span, "", class: "glyphicon glyphicon-search" %>
     <% end %>

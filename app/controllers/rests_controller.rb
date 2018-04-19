@@ -36,7 +36,6 @@ class RestsController < ApplicationController
     else
         flash[:notice] = "該当する店鋪がありませんでした"
         redirect_to :action => "search"
-
     end
 
   end
@@ -48,13 +47,14 @@ class RestsController < ApplicationController
     
     # paging(10 on each page)
     @some_rests = Kaminari.paginate_array(@rests).page(params[:page]).per(10)
+
+    p "---------range:"
     
   end
   
   def show
     @rest = Rest.find(params[:id])
     @url = request.url
-    p "----------------------ulr", @url
   end
 
 

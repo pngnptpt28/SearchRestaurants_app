@@ -129,9 +129,18 @@ header{
   }
 }
 
+.radio-button input[type="radio"]:checked + label {
+  background-color: #5a6268;
+  border-color: #545b62;
+  color: #fff;
+}
+
+
+
 .sign-up-form{
   margin-top: 50px;
 }
+
 
 
 
